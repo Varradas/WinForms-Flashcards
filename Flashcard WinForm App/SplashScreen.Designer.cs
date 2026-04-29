@@ -1,14 +1,14 @@
 ﻿namespace Flashcard_WinForm_App
 {
-    partial class Form1
+    partial class SplashScreen
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,41 +23,41 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            toolTip1 = new ToolTip(components);
-            pnlContent = new Panel();
+            lblSplash = new Label();
             SuspendLayout();
             // 
-            // pnlContent
+            // lblSplash
             // 
-            pnlContent.Dock = DockStyle.Fill;
-            pnlContent.Location = new Point(0, 0);
-            pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(800, 450);
-            pnlContent.TabIndex = 0;
+            lblSplash.AutoSize = true;
+            lblSplash.Location = new Point(340, 196);
+            lblSplash.Name = "lblSplash";
+            lblSplash.Size = new Size(138, 15);
+            lblSplash.TabIndex = 0;
+            lblSplash.Text = "This is the Splash Screen.";
             // 
-            // Form1
+            // SplashScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(pnlContent);
-            DoubleBuffered = true;
-            Name = "Form1";
+            Controls.Add(lblSplash);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "SplashScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "SplashScreen";
+            TopMost = true;
+            Load += SplashScreen_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private ToolTip toolTip1;
-        private Panel pnlContent;
+
+        private Label lblSplash;
     }
 }
