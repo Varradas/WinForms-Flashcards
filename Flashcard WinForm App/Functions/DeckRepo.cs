@@ -37,18 +37,23 @@ namespace Flashcard_WinForm_App.Functions
             return decks;
         }
 
-        public void UpdateDecksDB(List<Deck> decks)
+        public void DecksRefreshDB(List<Deck> decks)
         {
             using (var connection = new SqliteConnection(Flashcard_WinForm_App.Data.DBPath.ConnectionString))
             {
                 connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Deck WHERE UserID = $uid";
+                command.Parameters.AddWithValue("$uid", decks[0].UserID); //assumes all decks in the list belong to the same user
+                command.ExecuteNonQuery();
                 foreach (var deck in decks)
                 {
-                    var command = connection.CreateCommand();
-                    command.CommandText = "UPDATE Deck SET Label = $l, Description = $d WHERE DeckID = $id";
-                    command.Parameters.AddWithValue("$l", deck.Label);
-                    command.Parameters.AddWithValue("$d", deck.Description);
-                    command.Parameters.AddWithValue("$id", deck.DeckID);
+                    command.CommandText = "INSERT INTO Deck (DeckID, UserID, Label, Description) VALUES ($did, $uid, $label, $desc)";
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("$did", deck.DeckID);
+                    command.Parameters.AddWithValue("$uid", deck.UserID);
+                    command.Parameters.AddWithValue("$label", deck.Label);
+                    command.Parameters.AddWithValue("$desc", deck.Description);
                     command.ExecuteNonQuery();
                 }
             }

@@ -30,6 +30,7 @@
         {
             displayNickname = new Label();
             btnLogOut = new Button();
+            deckList = new ListBox();
             SuspendLayout();
             // 
             // displayNickname
@@ -52,10 +53,19 @@
             btnLogOut.UseVisualStyleBackColor = true;
             btnLogOut.Click += btnLogOut_Click;
             // 
+            // deckList
+            // 
+            deckList.FormattingEnabled = true;
+            deckList.Location = new Point(61, 156);
+            deckList.Name = "deckList";
+            deckList.Size = new Size(196, 229);
+            deckList.TabIndex = 3;
+            // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(deckList);
             Controls.Add(btnLogOut);
             Controls.Add(displayNickname);
             Name = "dashboard";
@@ -68,5 +78,6 @@
         #endregion
         private Label displayNickname;
         private Button btnLogOut;
+        private ListBox deckList;
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Flashcard_WinForm_App.Functions
 {
@@ -17,7 +18,7 @@ namespace Flashcard_WinForm_App.Functions
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT FlashcardID, DeckID, Question, Answer FROM Flashcard WHERE DeckID = $did";
+                command.CommandText = "SELECT CardID, DeckID, Definition, Answer, Mastered FROM Flashcard WHERE DeckID = $did";
 
                 foreach (var deck in decks)
                 {
@@ -33,7 +34,7 @@ namespace Flashcard_WinForm_App.Functions
                                 DeckID = reader.GetInt32(1),
                                 Definition = reader.GetString(2),
                                 Answer = reader.GetString(3),
-                                Mastered = false
+                                Mastered = Convert.ToBoolean(reader.GetInt32(4))
                             });
                         }
                     }
@@ -42,20 +43,28 @@ namespace Flashcard_WinForm_App.Functions
             return flashcards;
         }
 
-        public void UpdateFlashcardsDB(List<Flashcard> cards) 
+        public void RefreshFlashcardsDB(List<Flashcard> cards, int deckID)
         {
             using (var connection = new SqliteConnection(Flashcard_WinForm_App.Data.DBPath.ConnectionString))
             {
                 connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Flashcard WHERE DeckID = $did";
+                command.Parameters.AddWithValue("$did", cards[0].DeckID); //assumes all cards in the list belong to the same deck
+                command.ExecuteNonQuery();
                 foreach (var card in cards)
                 {
-                    var command = connection.CreateCommand();
-                    command.CommandText = "UPDATE Flashcard SET Mastered = $m WHERE CardID = $id";
-                    command.Parameters.AddWithValue("$m", card.Mastered ? 1 : 0);
-                    command.Parameters.AddWithValue("$id", card.CardID);
+                    command.CommandText = "INSERT INTO Flashcard (CardID, DeckID, Definition, Answer, Mastered) VALUES ($cid, $did, $def, $ans, $mast)";
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("$cid", card.CardID);
+                    command.Parameters.AddWithValue("$did", card.DeckID);
+                    command.Parameters.AddWithValue("$def", card.Definition);
+                    command.Parameters.AddWithValue("$ans", card.Answer);
+                    command.Parameters.AddWithValue("$mast", card.Mastered ? 1 : 0);
                     command.ExecuteNonQuery();
                 }
             }
-        }        
+        }
+        
     }
 }

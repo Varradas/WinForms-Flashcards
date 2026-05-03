@@ -1,4 +1,5 @@
 ﻿using Flashcard_WinForm_App.Functions;
+using Flashcard_WinForm_App.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +12,18 @@ namespace Flashcard_WinForm_App.UserInterface
 {
     public partial class dashboard : UserControl
     {
-        Flashcard_WinForm_App.Models.User currentUser;
-        public dashboard(Flashcard_WinForm_App.Models.User user)
+        User currentUser;
+        DeckRepo deckRepo = new DeckRepo();
+        CardRepo cardRepo = new CardRepo();
+
+        public dashboard(User user)
         {
             InitializeComponent();
             currentUser = user;
+            List<Deck> availableDecks = deckRepo.GetDecksForUser(currentUser.UserID);
+            List<Flashcard> availableCards = cardRepo.GetFlashcardsDB(availableDecks);
+            deckList.DataSource = availableDecks;
+            deckList.DisplayMember = "Label";
         }
 
         private void dashboard_Load(object sender, EventArgs e)
