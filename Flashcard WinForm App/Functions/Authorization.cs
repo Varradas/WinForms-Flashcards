@@ -70,7 +70,7 @@ namespace Flashcard_WinForm_App.Functions
                                 Nickname = reader.GetString(1),
                                 Username = username,
                                 PasswordHash = storedHash,
-                                Config = reader.IsDBNull(configOrdinal) ? null : (byte[])reader["Config"]
+                                Config = reader.IsDBNull(configOrdinal) ? null : (byte[])reader["Config"] //unsure
                             };
                         }
                         else
