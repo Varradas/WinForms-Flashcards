@@ -8,5 +8,7 @@ namespace Flashcard_WinForm_App.Data
     public static class DBPath
     {
         public static string ConnectionString { get; } = $"Data Source = database.db";
+
+        
     }
 }

@@ -6,10 +6,10 @@ namespace Flashcard_WinForm_App.Models
 {
     public class User
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; } = Guid.NewGuid().ToString();
         public string Nickname { get; set; }
         public string Username { get; set; }
         public string PasswordHash { get; set; }
-        public byte[] Config { get; set; }
+        public byte[]? Config { get; set; }
     }
 }

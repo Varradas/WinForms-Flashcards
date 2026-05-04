@@ -54,6 +54,10 @@ namespace Flashcard_WinForm_App
                 //buffer
                 Thread.Sleep(3000);
             }
+
+            Flashcard_WinForm_App.Data.GlobalData.Manager.LoadAllData();
+
+            Thread.Sleep(1000);
         }
     }
 }
