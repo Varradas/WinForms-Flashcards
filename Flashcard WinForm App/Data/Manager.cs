@@ -137,6 +137,17 @@ namespace Flashcard_WinForm_App.Data
                 );
         }
 
+        public void UpdateMastery(string cardId, bool mastered)
+        {
+            var c = Cards.FirstOrDefault(x => x.CardID == cardId);
+            if (c == null) return;
+            c.Mastered = mastered;
+            ExecuteNonQuery("UPDATE Flashcard SET Mastered = @m WHERE CardID = @id",
+                new SqliteParameter("@m", mastered), 
+                new SqliteParameter("@id", cardId)
+                );
+        }
+
         public void DeleteCard(string cardId)
         {
             Cards.RemoveAll(c => c.CardID == cardId);

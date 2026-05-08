@@ -28,46 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            btnLogin = new Button();
+            btnLogout = new Button();
+            deckList = new ListBox();
+            placeholderTextDeck = new Label();
+            btnAddDeck = new Button();
+            btnDeleteDeck = new Button();
+            btnImportDeck = new Button();
+            pnlContentSide = new Panel();
+            placeholderTextDisplay = new Label();
+            pnlContentSide.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // btnLogout
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(330, 289);
-            label1.Name = "label1";
-            label1.Size = new Size(128, 15);
-            label1.TabIndex = 0;
-            label1.Text = "This is the Home Page.";
+            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnLogout.Location = new Point(693, 549);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(67, 23);
+            btnLogout.TabIndex = 1;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // btnLogin
+            // deckList
             // 
-            btnLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnLogin.Location = new Point(46, 533);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(140, 23);
-            btnLogin.TabIndex = 1;
-            btnLogin.Text = "Go to Login Page";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
+            deckList.FormattingEnabled = true;
+            deckList.Location = new Point(40, 36);
+            deckList.Name = "deckList";
+            deckList.Size = new Size(266, 439);
+            deckList.TabIndex = 4;
+            deckList.SelectedIndexChanged += deckList_SelectedIndexChanged;
+            // 
+            // placeholderTextDeck
+            // 
+            placeholderTextDeck.AutoSize = true;
+            placeholderTextDeck.BackColor = Color.White;
+            placeholderTextDeck.Location = new Point(121, 257);
+            placeholderTextDeck.Name = "placeholderTextDeck";
+            placeholderTextDeck.Size = new Size(111, 15);
+            placeholderTextDeck.TabIndex = 5;
+            placeholderTextDeck.Text = "No Decks Available.";
+            // 
+            // btnAddDeck
+            // 
+            btnAddDeck.Location = new Point(39, 480);
+            btnAddDeck.Name = "btnAddDeck";
+            btnAddDeck.Size = new Size(85, 23);
+            btnAddDeck.TabIndex = 6;
+            btnAddDeck.Text = "New Deck";
+            btnAddDeck.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteDeck
+            // 
+            btnDeleteDeck.Enabled = false;
+            btnDeleteDeck.Location = new Point(130, 480);
+            btnDeleteDeck.Name = "btnDeleteDeck";
+            btnDeleteDeck.Size = new Size(85, 23);
+            btnDeleteDeck.TabIndex = 7;
+            btnDeleteDeck.Text = "Delete Deck";
+            btnDeleteDeck.UseVisualStyleBackColor = true;
+            // 
+            // btnImportDeck
+            // 
+            btnImportDeck.Location = new Point(221, 480);
+            btnImportDeck.Name = "btnImportDeck";
+            btnImportDeck.Size = new Size(85, 23);
+            btnImportDeck.TabIndex = 8;
+            btnImportDeck.Text = "Import Deck";
+            btnImportDeck.UseVisualStyleBackColor = true;
+            // 
+            // pnlContentSide
+            // 
+            pnlContentSide.BorderStyle = BorderStyle.FixedSingle;
+            pnlContentSide.Controls.Add(placeholderTextDisplay);
+            pnlContentSide.Location = new Point(312, 36);
+            pnlContentSide.Name = "pnlContentSide";
+            pnlContentSide.Size = new Size(448, 439);
+            pnlContentSide.TabIndex = 9;
+            // 
+            // placeholderTextDisplay
+            // 
+            placeholderTextDisplay.AutoSize = true;
+            placeholderTextDisplay.BackColor = SystemColors.ButtonFace;
+            placeholderTextDisplay.Location = new Point(166, 221);
+            placeholderTextDisplay.Name = "placeholderTextDisplay";
+            placeholderTextDisplay.Size = new Size(102, 15);
+            placeholderTextDisplay.TabIndex = 10;
+            placeholderTextDisplay.Text = "No Deck Selected.";
             // 
             // homePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnLogin);
-            Controls.Add(label1);
+            Controls.Add(pnlContentSide);
+            Controls.Add(btnImportDeck);
+            Controls.Add(btnDeleteDeck);
+            Controls.Add(btnAddDeck);
+            Controls.Add(placeholderTextDeck);
+            Controls.Add(deckList);
+            Controls.Add(btnLogout);
+            Margin = new Padding(0);
             Name = "homePage";
             Size = new Size(800, 600);
             Load += homePage_Load;
+            pnlContentSide.ResumeLayout(false);
+            pnlContentSide.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Button btnLogin;
+        private Button btnLogout;
+        private ListBox deckList;
+        private Label placeholderTextDeck;
+        private Button btnAddDeck;
+        private Button btnDeleteDeck;
+        private Button btnImportDeck;
+        private Panel pnlContentSide;
+        private Label placeholderTextDisplay;
     }
 }

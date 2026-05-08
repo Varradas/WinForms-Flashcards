@@ -40,11 +40,11 @@ namespace Flashcard_WinForm_App.UserInterface
 
             if (auth.LoginUser(username, password) is Flashcard_WinForm_App.Models.User user)
             {
-                var dashboardControl = new global::Flashcard_WinForm_App.UserInterface.dashboard(user);
+                var homePageControl = new global::Flashcard_WinForm_App.UserInterface.homePage(user);
                 Form parent = this.ParentForm;
                 if (parent is INavigation nav)
                 {
-                    nav.ShowPage(dashboardControl);
+                    nav.ShowPage(homePageControl);
                 }
             }
             else
