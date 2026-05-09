@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Flashcard_WinForm_App
 {
-    public partial class AddCardPopUp : Form
+    public partial class EditCardPopUp : Form
     {
         private Manager _manager = GlobalData.Manager;
         public string CardDef => inputDef.Text;
         public string CardAns => inputAns.Text;
-
-        public AddCardPopUp(User currentUser)
+        public EditCardPopUp(Flashcard currentCard)
         {
             InitializeComponent();
-            var availableDecks = _manager.Decks.Where(d => d.UserID == currentUser.UserID).ToList();
+            inputAns.Text = currentCard.Answer;
+            inputDef.Text = currentCard.Definition;
         }
     }
 }

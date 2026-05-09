@@ -77,6 +77,7 @@
             btnAddDeck.TabIndex = 6;
             btnAddDeck.Text = "New Deck";
             btnAddDeck.UseVisualStyleBackColor = true;
+            btnAddDeck.Click += btnAddDeck_Click;
             // 
             // btnDeleteDeck
             // 
@@ -87,6 +88,7 @@
             btnDeleteDeck.TabIndex = 7;
             btnDeleteDeck.Text = "Delete Deck";
             btnDeleteDeck.UseVisualStyleBackColor = true;
+            btnDeleteDeck.Click += btnDeleteDeck_Click;
             // 
             // btnImportDeck
             // 

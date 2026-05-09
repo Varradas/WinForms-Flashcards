@@ -20,11 +20,13 @@ namespace Flashcard_WinForm_App.UserInterface
         bool showingDefinition = true;
         List<Flashcard> availableCards;
         private Manager _manager = GlobalData.Manager;
+        User currentUser;
 
-        public learnCardsPage(Deck deck)
+        public learnCardsPage(Deck deck, User user)
         {
             InitializeComponent();
             currentDeck = deck;
+            currentUser = user;
             availableCards = _manager.Cards.Where(c => c.DeckID == currentDeck.DeckID).ToList();
             refreshData();
         }
@@ -180,7 +182,7 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var deckPageControl = new global::Flashcard_WinForm_App.UserInterface.deckPage(currentDeck);
+            var deckPageControl = new global::Flashcard_WinForm_App.UserInterface.deckPage(currentDeck, currentUser);
 
             Control parent = this.Parent;
             while (parent != null)

@@ -15,16 +15,18 @@ namespace Flashcard_WinForm_App.UserInterface
     {
         Deck currentDeck;
         private Manager _manager = GlobalData.Manager;
-        CardRepo cardRepo = new CardRepo();
+        DeckRepo _deckRepo = new DeckRepo();
+        User currentUser;
 
-        public deckPage(Deck selectedDeck)
+        public deckPage(Deck selectedDeck, User user)
         {
             InitializeComponent();
             currentDeck = selectedDeck;
-            RefreshContent();
+            currentUser = user;
+            refreshData();
         }
 
-        private void RefreshContent()
+        private void refreshData()
         {
             deckLabel.Text = currentDeck.Label;
             deckDescription.Text = currentDeck.Description;
@@ -46,7 +48,7 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnLearnCards_Click(object sender, EventArgs e)
         {
-            var learnCardsPageControl = new global::Flashcard_WinForm_App.UserInterface.learnCardsPage(currentDeck);
+            var learnCardsPageControl = new global::Flashcard_WinForm_App.UserInterface.learnCardsPage(currentDeck, currentUser);
 
             Control parent = this.Parent;
             while (parent != null)
@@ -67,7 +69,49 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnEditCards_Click(object sender, EventArgs e)
         {
+            var editCardPageControl = new global::Flashcard_WinForm_App.UserInterface.editCardPage(currentDeck, currentUser);
 
+            Control parent = this.Parent;
+            while (parent != null)
+            {
+                if (parent is INavigation nav)
+                {
+                    nav.ShowPage(editCardPageControl);
+                    break;
+                }
+                parent = parent.Parent;
+            }
+        }
+
+        private void btnEditDeck_Click(object sender, EventArgs e)
+        {
+            using (EditDeckPopUp popUp = new EditDeckPopUp(currentDeck))
+            {
+                if (popUp.ShowDialog() == DialogResult.OK)
+                {
+                    string label = popUp.DeckLabel;
+                    string description = popUp.DeckDescription;
+                    if (!string.IsNullOrEmpty(label) && !string.IsNullOrEmpty(description))
+                    {
+                        _deckRepo.UpdateDeck(currentDeck.DeckID, label, description);
+                        refreshData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill in all the fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Control parent = this.Parent;
+                    while (parent != null)
+                    {
+                        if (parent is homePage nav)
+                        {
+                            nav.refreshData();
+                            break;
+                        }
+                        parent = parent.Parent;
+                    }
+                }
+            }
         }
     }
 }

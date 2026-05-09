@@ -44,7 +44,7 @@ namespace Flashcard_WinForm_App.UserInterface
             }
         }
 
-        private void refreshData()
+        internal void refreshData()
         {
             deckList.DataSource = null;
 
@@ -71,7 +71,7 @@ namespace Flashcard_WinForm_App.UserInterface
             if (deckList.SelectedItem is Deck selectedDeck)
             {
                 placeholderTextDisplay.Visible = false;
-                var details = new deckPage(selectedDeck);
+                var details = new deckPage(selectedDeck, currentUser);
                 this.ShowPage(details);
             }
         }
@@ -80,7 +80,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             foreach (Control ctrl in pnlContentSide.Controls)
             {
-                ctrl.Dispose(); 
+                ctrl.Dispose();
             }
             pnlContentSide.Controls.Clear();
             page.Dock = DockStyle.Fill;
@@ -89,12 +89,57 @@ namespace Flashcard_WinForm_App.UserInterface
 
         public void ResizeHost(int width, int height)
         {
-            
+
         }
 
         public void LockSize(bool lockSize)
         {
-            
+
+        }
+
+        private void btnAddDeck_Click(object sender, EventArgs e)
+        {
+            using (AddDeckPopUp popUp = new AddDeckPopUp())
+            {
+                if (popUp.ShowDialog() == DialogResult.OK)
+                {
+                    string label = popUp.DeckLabel;
+                    string description = popUp.DeckDescription;
+
+                    if (!string.IsNullOrEmpty(label) && !string.IsNullOrEmpty(description))
+                    {
+                        deckRepo.AddDeck(currentUser.UserID, label, description);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill in both the label and description fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            refreshData();
+        }
+
+        private void btnDeleteDeck_Click(object sender, EventArgs e)
+        {
+            var selectedDeck = (Deck)deckList.SelectedItem;
+
+            if (selectedDeck != null)
+            {
+                DialogResult result = MessageBox.Show(
+                    $"Are you sure you want to delete the deck: {selectedDeck.Label}?\nThis will also delete all associated cards!",
+                    "Confirm Deletion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    deckRepo.RemoveDeck(selectedDeck.DeckID);
+                    refreshData();
+
+                    MessageBox.Show("Deck deleted successfully.");
+                }
+            }
         }
     }
 }

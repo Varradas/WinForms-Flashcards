@@ -65,19 +65,19 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void addCardBtn_Click(object sender, EventArgs e)
         {
-            using (AddCardPopUp popUp = new AddCardPopUp(currentUser))
-            {
-                if (popUp.ShowDialog() == DialogResult.OK)
-                {
-                    string DeckID = popUp.DeckID;
-                    string definition = popUp.CardDef;
-                    string answer = popUp.CardAns;
+            //using (AddCardPopUp popUp = new AddCardPopUp(currentUser))
+            //{
+            //    if (popUp.ShowDialog() == DialogResult.OK)
+            //    {
+            //        string DeckID = currentDeck.DeckID;
+            //        string definition = popUp.CardDef;
+            //        string answer = popUp.CardAns;
 
 
-                    cardRepo.AddCard(DeckID, definition, answer);
-                }
-            }
-            refreshData();
+            //        cardRepo.AddCard(DeckID, definition, answer);
+            //    }
+            //}
+            //refreshData();
         }
 
         private void deleteDeckBtn_Click(object sender, EventArgs e)

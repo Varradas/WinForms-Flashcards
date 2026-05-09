@@ -34,7 +34,6 @@
             cancelBtn = new Button();
             inputAns = new TextBox();
             label2 = new Label();
-            deckSelect = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -89,15 +88,6 @@
             label2.TabIndex = 4;
             label2.Text = "Answer";
             // 
-            // deckSelect
-            // 
-            deckSelect.FormattingEnabled = true;
-            deckSelect.Location = new Point(74, 194);
-            deckSelect.Name = "deckSelect";
-            deckSelect.Size = new Size(150, 23);
-            deckSelect.TabIndex = 6;
-            deckSelect.Text = "Select Deck";
-            // 
             // AddCardPopUp
             // 
             AcceptButton = addBtn;
@@ -105,7 +95,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = cancelBtn;
             ClientSize = new Size(584, 461);
-            Controls.Add(deckSelect);
             Controls.Add(inputAns);
             Controls.Add(label2);
             Controls.Add(cancelBtn);
@@ -126,6 +115,5 @@
         private Button cancelBtn;
         private TextBox inputAns;
         private Label label2;
-        private ComboBox deckSelect;
     }
 }

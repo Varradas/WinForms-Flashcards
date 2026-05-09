@@ -35,6 +35,7 @@
             btnStartQuiz = new Button();
             btnEditCards = new Button();
             label1 = new Label();
+            btnEditDeck = new Button();
             SuspendLayout();
             // 
             // deckLabel
@@ -52,7 +53,7 @@
             deckDescription.Font = new Font("Segoe UI", 12F);
             deckDescription.Location = new Point(28, 96);
             deckDescription.Name = "deckDescription";
-            deckDescription.Size = new Size(390, 262);
+            deckDescription.Size = new Size(390, 257);
             deckDescription.TabIndex = 1;
             deckDescription.Text = "deckDescription";
             // 
@@ -103,10 +104,21 @@
             label1.Size = new Size(485, 2);
             label1.TabIndex = 6;
             // 
+            // btnEditDeck
+            // 
+            btnEditDeck.Location = new Point(28, 356);
+            btnEditDeck.Name = "btnEditDeck";
+            btnEditDeck.Size = new Size(132, 23);
+            btnEditDeck.TabIndex = 7;
+            btnEditDeck.Text = "Edit Deck Information";
+            btnEditDeck.UseVisualStyleBackColor = true;
+            btnEditDeck.Click += btnEditDeck_Click;
+            // 
             // deckPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnEditDeck);
             Controls.Add(label1);
             Controls.Add(btnEditCards);
             Controls.Add(btnStartQuiz);
@@ -129,5 +141,6 @@
         private Button btnStartQuiz;
         private Button btnEditCards;
         private Label label1;
+        private Button btnEditDeck;
     }
 }
