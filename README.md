@@ -1,4 +1,5 @@
-# StudySync: Smart Flashcard and Quiz Learning System
+# FlashWise: Smart Flashcard and Quiz Learning System with Progress Tracking and Pomodoro Timer
+
 
 ## Project Description and Purpose
 
