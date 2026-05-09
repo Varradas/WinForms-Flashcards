@@ -64,7 +64,8 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnStartQuiz_Click(object sender, EventArgs e)
         {
-
+            QuizPopUp quizPopUp = new QuizPopUp(currentDeck);
+            quizPopUp.ShowDialog();
         }
 
         private void btnEditCards_Click(object sender, EventArgs e)

@@ -23,7 +23,7 @@ namespace Flashcard_WinForm_App
         {
             foreach (Control ctrl in pnlContent.Controls)
             {
-                ctrl.Dispose(); // This is the 'Self-Destruct' button
+                ctrl.Dispose(); 
             }
             pnlContent.Controls.Clear();
             page.Dock = DockStyle.Fill;
