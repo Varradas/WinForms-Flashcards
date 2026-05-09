@@ -2,8 +2,7 @@
 
 
 ## Project Description and Purpose
-
-StudySync is a Smart Flashcard and Quiz Learning System developed using C# Windows Forms Application. The system is designed to help students improve their study habits, learning efficiency, and time management through interactive learning tools.
+FlashWise is a Smart Flashcard and Quiz Learning System developed using C# Windows Forms Application. The system is designed to help students improve their study habits, learning efficiency, and time management through interactive learning tools.
 
 The application combines flashcards, quizzes, progress tracking, and a Pomodoro timer into a single platform to promote active recall, spaced repetition, and focused studying. Users can create and manage study materials, take quizzes, monitor their learning progress, and manage study sessions effectively.
 
@@ -76,11 +75,6 @@ Complex processes such as scoring systems, timer logic, and flashcard navigation
 - Organize flashcards by subject/category
 
 ## 3. Flashcard Study System
-- Flashcard flip interaction
-- Keyboard navigation:
-  - ↑ / ↓ = Flip Card
-  - ← = Previous Card
-  - → = Next Card
 - Flashcard status:
   - Seen
   - Mastered
