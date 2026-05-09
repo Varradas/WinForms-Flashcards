@@ -36,6 +36,7 @@
             btnImportDeck = new Button();
             pnlContentSide = new Panel();
             placeholderTextDisplay = new Label();
+            btnExportDeck = new Button();
             pnlContentSide.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             // btnDeleteDeck
             // 
             btnDeleteDeck.Enabled = false;
-            btnDeleteDeck.Location = new Point(130, 480);
+            btnDeleteDeck.Location = new Point(40, 509);
             btnDeleteDeck.Name = "btnDeleteDeck";
             btnDeleteDeck.Size = new Size(85, 23);
             btnDeleteDeck.TabIndex = 7;
@@ -92,12 +93,13 @@
             // 
             // btnImportDeck
             // 
-            btnImportDeck.Location = new Point(221, 480);
+            btnImportDeck.Location = new Point(130, 481);
             btnImportDeck.Name = "btnImportDeck";
             btnImportDeck.Size = new Size(85, 23);
             btnImportDeck.TabIndex = 8;
             btnImportDeck.Text = "Import Deck";
             btnImportDeck.UseVisualStyleBackColor = true;
+            btnImportDeck.Click += btnImportDeck_Click;
             // 
             // pnlContentSide
             // 
@@ -118,10 +120,21 @@
             placeholderTextDisplay.TabIndex = 10;
             placeholderTextDisplay.Text = "No Deck Selected.";
             // 
+            // btnExportDeck
+            // 
+            btnExportDeck.Location = new Point(131, 509);
+            btnExportDeck.Name = "btnExportDeck";
+            btnExportDeck.Size = new Size(85, 23);
+            btnExportDeck.TabIndex = 10;
+            btnExportDeck.Text = "Export Deck";
+            btnExportDeck.UseVisualStyleBackColor = true;
+            btnExportDeck.Click += btnExportDeck_Click;
+            // 
             // homePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnExportDeck);
             Controls.Add(pnlContentSide);
             Controls.Add(btnImportDeck);
             Controls.Add(btnDeleteDeck);
@@ -148,5 +161,6 @@
         private Button btnImportDeck;
         private Panel pnlContentSide;
         private Label placeholderTextDisplay;
+        private Button btnExportDeck;
     }
 }

@@ -63,11 +63,32 @@ namespace Flashcard_WinForm_App.UserInterface
             {
                 placeholderTextDeck.Visible = true;
             }
+            
+            if (deckList.SelectedItem == null)
+            {
+                btnDeleteDeck.Enabled = false;
+                btnExportDeck.Enabled = false;
+                pnlContentSide.Controls.Clear();
+
+                Label placeholder = new Label
+                {
+                    Text = "No Deck Selected.",
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                    ForeColor = Color.Black,
+                    Left = 166,
+                    Top = 221,
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+
+                pnlContentSide.Controls.Add(placeholder);
+            }
         }
 
         private void deckList_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteDeck.Enabled = (deckList.SelectedItem != null);
+            btnExportDeck.Enabled = (deckList.SelectedItem != null);
             if (deckList.SelectedItem is Deck selectedDeck)
             {
                 placeholderTextDisplay.Visible = false;
@@ -138,6 +159,38 @@ namespace Flashcard_WinForm_App.UserInterface
                     refreshData();
 
                     MessageBox.Show("Deck deleted successfully.");
+                }
+            }
+        }
+
+        private void btnImportDeck_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Flashcard Deck (*.json)|*.json";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    GlobalData.Manager.ImportDeck(currentUser.UserID, ofd.FileName);
+                    MessageBox.Show("Deck imported successfully!");
+
+                    refreshData();
+                }
+            }
+        }
+
+        private void btnExportDeck_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Flashcard Deck (*.json)|*.json";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var selectedDeck = (Deck)deckList.SelectedItem;
+                    if (selectedDeck != null)
+                    {
+                        GlobalData.Manager.ExportDeck(selectedDeck.DeckID, sfd.FileName);
+                        MessageBox.Show("Deck exported successfully!");
+                    }
                 }
             }
         }

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using static Flashcard_WinForm_App.Data.TransferData;
 
 namespace Flashcard_WinForm_App.Data
 {
@@ -152,6 +154,46 @@ namespace Flashcard_WinForm_App.Data
         {
             Cards.RemoveAll(c => c.CardID == cardId);
             ExecuteNonQuery("DELETE FROM Flashcard WHERE CardID = @id", new SqliteParameter("@id", cardId));
+        }
+
+        public void ExportDeck(string deckId, string filePath)
+        {
+            var deck = Decks.FirstOrDefault(d => d.DeckID == deckId);
+            if (deck == null) return;
+
+            var exportData = new DeckExportPackage
+            {
+                Label = deck.Label,
+                Description = deck.Description,
+                Cards = Cards.Where(c => c.DeckID == deckId)
+                             .Select(c => new FlashcardData
+                             {
+                                 Definition = c.Definition,
+                                 Answer = c.Answer
+                             }).ToList()
+            };
+
+            string json = JsonSerializer.Serialize(exportData, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+
+        public void ImportDeck(string userId, string filePath)
+        {
+            if (!File.Exists(filePath)) return;
+
+            string json = File.ReadAllText(filePath);
+            var importedData = JsonSerializer.Deserialize<DeckExportPackage>(json);
+
+            if (importedData == null) return;
+
+            CreateDeck(userId, importedData.Label, importedData.Description);
+
+            string newDeckId = Decks.Last().DeckID;
+
+            foreach (var card in importedData.Cards)
+            {
+                CreateCard(newDeckId, card.Definition, card.Answer);
+            }
         }
 
         private void ExecuteNonQuery(string query, params SqliteParameter[] p)
