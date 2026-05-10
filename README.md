@@ -120,9 +120,7 @@ https://github.com/Varradas/WinForms-Flashcards.git
 2.) Extract to desired folder
 
 3.) Run "Flashcard WinForm App.exe"
-```
 
-6. Register an account and start using the system.
 
 # Project Structure
 ```
