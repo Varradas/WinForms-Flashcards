@@ -122,7 +122,7 @@ After login, users are redirected to the main dashboard where they can access:
 ## Step 3: Flashcard Learning
 Users create flashcards and study them through flip-card interaction and keyboard navigation.
 
-The system tracks flashcard progress by checking the Mastered checkbox
+The system tracks flashcard progress by checking the Mastered checkbox.
 
 ## Step 4: Quiz Setup
 Users can start quizzes base on their flashcards. Users can also select the quiz type and number of items.
