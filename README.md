@@ -29,82 +29,39 @@ The main purpose of the system is to:
 
 <img src="images/umlv2.png" alt="Alt text" width="1000">
 
-## Planned Classes
-
-### Main Classes
-- User
-- Deck
-- Flashcard
-- QuizSession
-- Authorization
-- Manager
-- PomodoroTimer
-
-## OOP Principles Applied
-
-### Encapsulation
-Data such as usernames, passwords, flashcards, quiz results, and progress are stored securely using private fields with controlled access through methods.
-
-### Inheritance
-Different quiz types inherit from the base `Quiz` class:
-- MultipleChoiceQuiz
-- IdentificationQuiz
-
-### Polymorphism
-The method `CheckAnswer()` behaves differently depending on the quiz type.
-
-### Abstraction
-Complex processes such as scoring systems, timer logic, and flashcard navigation are hidden behind user-friendly interfaces.
+### Applied OOP Principles
+* **Encapsulation:** Managed through the `Manager` class, which isolates database logic (SQLite) from the UI. User credentials are secured using BCrypt hashing.
+* **Inheritance:** Standardized UI behavior is achieved by having all forms and pop-ups inherit from a specialized `BaseForm`.
+* **Abstraction:** Navigation and page-switching are abstracted via the `INavigation` interface, allowing decoupled communication between UserControls and the main Host Form.
+* **Polymorphism:** The `ShowPage()` method is implemented across different host containers, allowing for flexible UI rendering depending on the current context (Main App vs. Quiz Pop-up).
 
 ---
 
-# Features and Functionalities
+## Features and Functionalities
 
-## 1. User Authentication System
-- User registration
-- User login/logout
+1.  **Secure Authentication:** User registration and login featuring encrypted password storage.
+2.  **Deck & Card CRUD:** Full management of study materials including descriptions and labels.
+3.  **Active Recall System:** Interactive flashcard interface with "Mastery" toggles.
+4.  **Dynamic Quiz Engine:** * **Multiple Choice:** Automatically pulls wrong answers from other cards in the deck.
+    * **Identification:** Requires text matches for rigorous testing.
+    * **Smart Filtering:** Option to exclude "Mastered" cards to focus on weak areas.
+5.  **Global Pomodoro Timer:** * Customizable Work/Break intervals.
+    * UI Lock-out during mandatory breaks to prevent burnout.
+6.  **Data Portability:** Export and import decks as `.json` files for backup or sharing with other users.
 
-## 2. Flashcard Management (CRUD)
-- Create flashcards
-- View flashcards
-- Update flashcards
-- Delete flashcards
-- Organize flashcards by subject/category
+---
 
-## 3. Flashcard Study System
-- Flashcard status:
-  - Mastered (Checkbox)
+## Technologies Used
 
-## 4. Quiz Setup
-- Take quizzes
-- Can choice number of Items
-- Can choice type of quiz
-
-## 5. Quiz Types
-- Multiple Choice
-- Identification
-
-## 6. Score System
-- Displays:
-  - Score
-  - Correct answer
-  - Incorrect answer
-
-## 7. Progress Tracking System
-Tracks learning progress through:
-- Mastery Percentage
-
-## 8. Pomodoro Timer
-- 25-minute study sessions
-- 5-minute break sessions
-- Custom timer support
-
-## 9. Import and Export Premade Decks
-- Users can import premade flashcard decks into the system
-- Users can export their own flashcard decks for backup or sharing
-- Supports organized study material sharing between users
-- Helps reduce the time needed to manually create flashcards
-- Imported decks are automatically categorized by subject or topic
+| Technology | Implementation |
+| :--- | :--- |
+| **C# / .NET** | Programming language and runtime |
+| **WinForms** | GUI Framework |
+| **SQLite** | Local relational data storage |
+| **BCrypt.Net** | Password security and hashing |
+| **System.Text.Json** | Data serialization for deck sharing |
+| **GitHub** | Version control and repository hosting |
+| **Visual Studio** | Development environment |
 
 ---
 
@@ -142,18 +99,6 @@ The system also allows users to export their own flashcard decks for:
 - Reusing study materials in the future
 
 Imported decks are automatically added to the flashcard management system and categorized properly for easier studying.
-
----
-
-# Technologies Used
-
-| Technology | Purpose |
-|------------|---------|
-| C# | Main programming language |
-| Windows Forms | Graphical User Interface |
-| Visual Studio | Development environment |
-| SQLite / SQL Server | Database management |
-| GitHub | Version control and repository hosting |
 
 ---
 
