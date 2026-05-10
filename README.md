@@ -114,7 +114,7 @@ Imported decks are automatically added to the flashcard management system and ca
 1. Download or clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/studysync.git
+https://github.com/Varradas/WinForms-Flashcards.git
 ```
 
 2. Open the project folder in Visual Studio.
