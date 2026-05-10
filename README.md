@@ -99,6 +99,13 @@ Tracks learning progress through:
 - 5-minute break sessions
 - Custom timer support
 
+## 9. Import and Export Premade Decks
+- Users can import premade flashcard decks into the system
+- Users can export their own flashcard decks for backup or sharing
+- Supports organized study material sharing between users
+- Helps reduce the time needed to manually create flashcards
+- Imported decks are automatically categorized by subject or topic
+
 ---
 
 # Explanation of How the Program Works
@@ -124,7 +131,17 @@ Users create or take quizzes using different quiz types.
 The system monitors user learning performance and flashcard progress.
 
 ## Step 6: Pomodoro Timer
-Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes.
+Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes. 
+
+## Step 7: Import and Export Decks
+Users can import premade flashcard decks to quickly access study materials without manually creating flashcards.
+
+The system also allows users to export their own flashcard decks for:
+- Backup purposes
+- Sharing with classmates
+- Reusing study materials in the future
+
+Imported decks are automatically added to the flashcard management system and categorized properly for easier studying.
 
 ---
 
@@ -147,8 +164,33 @@ Users can start study sessions using the Pomodoro Timer while reviewing flashcar
 - Visual Studio 2022 or later
 - .NET Framework
 
-## Steps to Run
+# How to Run the Application
 
-1. Clone the repository:
+1. Download or clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/studysync.git
+```
+
+2. Open the project folder in Visual Studio.
+
+3. Open the solution file:
+
+```text
+StudySync.sln
+```
+
+4. Build the project by clicking:
+
+```text
+Build → Build Solution
+```
+
+5. Run the application by pressing:
+
+```text
+F5
+```
+
+6. Register an account and start using the system.
+
