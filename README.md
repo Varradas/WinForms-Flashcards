@@ -124,7 +124,7 @@ Users create flashcards and study them through flip-card interaction and keyboar
 
 The system tracks flashcard progress by checking the Mastered checkbox
 
-## Step 4: Quiz Set
+## Step 4: Quiz Setup
 Users can start quizzes base on their flashcards. Users can also select the quiz type and number of items.
 
 ## Step 5: Progress Tracking
