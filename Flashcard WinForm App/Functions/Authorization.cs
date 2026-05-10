@@ -33,7 +33,7 @@ namespace Flashcard_WinForm_App.Functions
             return true;
         }
 
-        public User LoginUser(string username, string password)
+        public User? LoginUser(string username, string password)
         {
             var user = _manager.Users.FirstOrDefault(u =>
                 u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));

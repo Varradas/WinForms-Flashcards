@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace Flashcard_WinForm_App
 {
-    public partial class QuizPopUp : Form, INavigation
+    public partial class QuizPopUp : BaseForm, INavigation
     {
         Deck currentDeck;
         public QuizPopUp(Deck deck)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
             currentDeck = deck;
         }
 
@@ -29,7 +30,7 @@ namespace Flashcard_WinForm_App
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtItems.Text) || choiceQuizType.SelectedItem == null)
+            if (string.IsNullOrEmpty(txtItems.Text) || choiceQuizType?.SelectedItem == null)
             {
                 MessageBox.Show("Please enter the number of items and select a quiz type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -39,7 +40,10 @@ namespace Flashcard_WinForm_App
                 masteredFilter.Checked, 
                 int.Parse(txtItems.Text));
 
-            var startQuizPageControl = new global::Flashcard_WinForm_App.UserInterface.startQuizPage(quizSession, choiceQuizType.SelectedItem.ToString());
+            // Ensure a non-null string is passed to the startQuizPage constructor to satisfy nullability.
+            string quizType = choiceQuizType?.SelectedItem?.ToString() ?? string.Empty;
+
+            var startQuizPageControl = new global::Flashcard_WinForm_App.UserInterface.startQuizPage(quizSession, quizType);
 
             ShowPage(startQuizPageControl);
             

@@ -1,4 +1,5 @@
 ﻿using Flashcard_WinForm_App.Data;
+using Flashcard_WinForm_App.Functions;
 using Flashcard_WinForm_App.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Flashcard_WinForm_App
 {
-    public partial class AddCardPopUp : Form
+    public partial class AddCardPopUp : BaseForm
     {
         private Manager _manager = GlobalData.Manager;
         public string CardDef => inputDef.Text;
@@ -19,6 +20,7 @@ namespace Flashcard_WinForm_App
         public AddCardPopUp(User currentUser)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
             var availableDecks = _manager.Decks.Where(d => d.UserID == currentUser.UserID).ToList();
         }
     }

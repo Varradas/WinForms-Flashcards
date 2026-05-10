@@ -68,7 +68,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Transparent;
+            BackColor = SystemColors.Desktop;
             Controls.Add(btnStop);
             Controls.Add(btnStart);
             Controls.Add(lblTimer);

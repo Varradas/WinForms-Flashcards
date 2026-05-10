@@ -16,6 +16,7 @@ namespace Flashcard_WinForm_App.UserInterface
         public loginPage()
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
         }
 
         private void loginPage_Load(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace Flashcard_WinForm_App.UserInterface
             if (auth.LoginUser(username, password) is Flashcard_WinForm_App.Models.User user)
             {
                 var homePageControl = new global::Flashcard_WinForm_App.UserInterface.homePage(user);
-                Form parent = this.ParentForm;
+                Form? parent = this.ParentForm;
                 if (parent is INavigation nav)
                 {
                     nav.ShowPage(homePageControl);
@@ -57,7 +58,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var registerPageControl = new global::Flashcard_WinForm_App.UserInterface.registerPage();
 
-            Form parent = this.ParentForm;
+            Form? parent = this.ParentForm;
             if (parent is INavigation nav)
             {
                 nav.ShowPage(registerPageControl);

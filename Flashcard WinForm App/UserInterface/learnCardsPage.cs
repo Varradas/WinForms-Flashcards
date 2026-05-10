@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -25,6 +26,8 @@ namespace Flashcard_WinForm_App.UserInterface
         public learnCardsPage(Deck deck, User user)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
+            this.BackColor = Theme.ButtonBgColor;
             currentDeck = deck;
             currentUser = user;
             availableCards = _manager.Cards.Where(c => c.DeckID == currentDeck.DeckID).ToList();
@@ -53,7 +56,7 @@ namespace Flashcard_WinForm_App.UserInterface
                     cardOuter.Height = 0;
                     showingDefinition = false;
                     cardLabel.Text = availableCards[currentCardIndex].Answer;
-                    cardOuter.BackColor = Color.LightBlue;
+                    cardOuter.BackColor = Theme.CardBack;
                 }
             }
             else
@@ -79,7 +82,7 @@ namespace Flashcard_WinForm_App.UserInterface
                     cardOuter.Height = 0;
                     showingDefinition = false;
                     cardLabel.Text = availableCards[currentCardIndex].Definition;
-                    cardOuter.BackColor = Color.LightGray;
+                    cardOuter.BackColor = Theme.CardFront;
                 }
             }
             else
@@ -155,7 +158,7 @@ namespace Flashcard_WinForm_App.UserInterface
             {
                 cardLabel.Text = availableCards[currentCardIndex].Definition;
                 checkBox1.Checked = availableCards[currentCardIndex].Mastered;
-                cardOuter.BackColor = Color.LightGray;
+                cardOuter.BackColor = Theme.CardFront;
                 btnFlip.Enabled = true;
                 isFlipped = false;
                 showingDefinition = true;
@@ -184,7 +187,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var deckPageControl = new global::Flashcard_WinForm_App.UserInterface.deckPage(currentDeck, currentUser);
 
-            Control parent = this.Parent;
+            Control? parent = this.Parent;
             while (parent != null)
             {
                 if (parent is INavigation nav)
@@ -194,6 +197,38 @@ namespace Flashcard_WinForm_App.UserInterface
                 }
                 parent = parent.Parent;
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // 1. Handle Ctrl + S
+            if (keyData == (Keys.Left))
+            {
+                btnPrevious.PerformClick();
+                return true; // "True" tells Windows we handled the key (prevents 'ding' sound)
+            }
+
+            // 2. Handle a simple key like F5
+            if (keyData == Keys.Right)
+            {
+                btnNext.PerformClick();
+                return true;
+            }
+
+            if (keyData == Keys.Space)
+            {
+                btnFlip.PerformClick();
+                return true;
+            }
+
+            if (keyData == Keys.Enter)
+            {
+                checkBox1.Checked = !checkBox1.Checked;
+                return true;
+            }   
+
+            // 3. IMPORTANT: Call the base method so other keys (like Tab) still work!
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

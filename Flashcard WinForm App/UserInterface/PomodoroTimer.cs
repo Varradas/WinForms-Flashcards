@@ -19,12 +19,15 @@ namespace Flashcard_WinForm_App.UserInterface
         [DefaultValue(0)]
         public int BreakDurationMinutes { get; set; } = 5;
 
-        public event EventHandler OnBreakStarted;
-        public event EventHandler OnBreakEnded;
+        public event EventHandler? OnBreakStarted;
+        public event EventHandler? OnBreakEnded;
+        public event EventHandler? OnBreakStopped;
 
         public PomodoroTimer()
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
+            this.BackColor = Theme.BackgroundColor;
             countdownTimer = new System.Windows.Forms.Timer { Interval = 1000 };
             countdownTimer.Tick += CountdownTimer_Tick;
         }
@@ -47,10 +50,10 @@ namespace Flashcard_WinForm_App.UserInterface
             timeLeftInSeconds = WorkDurationMinutes * 60;
             UpdateDisplay(timeLeftInSeconds);
 
-            OnBreakEnded?.Invoke(this, EventArgs.Empty);
+            OnBreakStopped?.Invoke(this, EventArgs.Empty);
         }
 
-        private void CountdownTimer_Tick(object sender, EventArgs e)
+        private void CountdownTimer_Tick(object? sender, EventArgs e)
         {
             if (timeLeftInSeconds > 0)
             {

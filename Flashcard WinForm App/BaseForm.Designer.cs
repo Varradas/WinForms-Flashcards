@@ -1,6 +1,8 @@
-﻿namespace Flashcard_WinForm_App
+﻿using Flashcard_WinForm_App.Properties;
+
+namespace Flashcard_WinForm_App
 {
-    partial class SplashScreen
+    partial class BaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +30,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // SplashScreen
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.splashImage;
-            BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(800, 450);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "SplashScreen";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "FlashWise";
-            Load += SplashScreen_Load;
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "BaseForm";
+            this.Icon = Icon.FromHandle(Properties.Resources.AppLogo.GetHicon());
         }
 
         #endregion

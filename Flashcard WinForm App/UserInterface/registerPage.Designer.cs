@@ -34,23 +34,25 @@
             usernameInput = new TextBox();
             nicknameInput = new TextBox();
             btnBack = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(132, 86);
+            label1.Location = new Point(156, 106);
             label1.Name = "label1";
-            label1.Size = new Size(223, 28);
+            label1.Size = new Size(170, 28);
             label1.TabIndex = 1;
-            label1.Text = "This is the Register Page.";
+            label1.Text = "Register New User";
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(213, 313);
+            btnRegister.Location = new Point(205, 316);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(75, 23);
+            btnRegister.Size = new Size(75, 25);
             btnRegister.TabIndex = 8;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -58,7 +60,7 @@
             // 
             // passwordInput
             // 
-            passwordInput.Location = new Point(149, 210);
+            passwordInput.Location = new Point(141, 210);
             passwordInput.Name = "passwordInput";
             passwordInput.PlaceholderText = "Password";
             passwordInput.Size = new Size(202, 23);
@@ -66,7 +68,7 @@
             // 
             // usernameInput
             // 
-            usernameInput.Location = new Point(149, 165);
+            usernameInput.Location = new Point(141, 168);
             usernameInput.Name = "usernameInput";
             usernameInput.PlaceholderText = "Username";
             usernameInput.Size = new Size(202, 23);
@@ -74,7 +76,7 @@
             // 
             // nicknameInput
             // 
-            nicknameInput.Location = new Point(149, 255);
+            nicknameInput.Location = new Point(141, 254);
             nicknameInput.Name = "nicknameInput";
             nicknameInput.PlaceholderText = "Nickname";
             nicknameInput.Size = new Size(202, 23);
@@ -91,10 +93,21 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(162, 42);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(151, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
             // registerPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox1);
             Controls.Add(btnBack);
             Controls.Add(nicknameInput);
             Controls.Add(btnRegister);
@@ -104,6 +117,7 @@
             Name = "registerPage";
             Size = new Size(500, 500);
             Load += registerPage_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +130,6 @@
         private TextBox usernameInput;
         private TextBox nicknameInput;
         private Button btnBack;
+        private PictureBox pictureBox1;
     }
 }

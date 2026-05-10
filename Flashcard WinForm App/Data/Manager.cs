@@ -32,7 +32,6 @@ namespace Flashcard_WinForm_App.Data
                         IsPomodoroEnabled = r.GetBoolean(4), 
                         TimerWorkLength = r.GetInt16(5), 
                         TimerBreakLength = r.GetInt16(6)
-                    //Config = r.IsDBNull(4) ? null : (byte[])r["Config"]
                 });
 
                 var deckCmd = new SqliteCommand("SELECT DeckID, UserID, Label, Description FROM Deck", conn);

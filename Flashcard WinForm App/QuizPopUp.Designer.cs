@@ -137,7 +137,7 @@
             ClientSize = new Size(447, 239);
             Controls.Add(pnlContent);
             Name = "QuizPopUp";
-            Text = "QuizPopUp";
+            Text = "Quiz";
             pnlContent.ResumeLayout(false);
             pnlContent.PerformLayout();
             ResumeLayout(false);

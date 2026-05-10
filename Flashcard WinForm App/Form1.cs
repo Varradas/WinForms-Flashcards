@@ -1,16 +1,20 @@
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Flashcard_WinForm_App.Models;
+using Flashcard_WinForm_App.Properties;
+using Flashcard_WinForm_App.Functions;
+using Flashcard_WinForm_App.Data;
 
 namespace Flashcard_WinForm_App
 {
-    public partial class Form1 : Form, Functions.INavigation
+    public partial class Form1 : BaseForm, Functions.INavigation
     {
-        private Control _originalTimerParent;
         public Form1()
         {
             InitializeComponent();
             pomodoroTimer.OnBreakStarted += HandleBreakStarted;
             pomodoroTimer.OnBreakEnded += HandleBreakEnded;
+            pomodoroTimer.OnBreakStopped += HandleBreakStopped;
+            Theme.ApplyTheme(this);
         }
 
         private void Form1_Load(object sender, EventArgs e) //put splash screen here, then open login form
@@ -62,7 +66,7 @@ namespace Flashcard_WinForm_App
             }
         }
 
-        private void HandleBreakStarted(object sender, EventArgs e)
+        private void HandleBreakStarted(object? sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
             {
@@ -80,14 +84,14 @@ namespace Flashcard_WinForm_App
             pomodoroTimer.Location = new Point(360, (pnlLockOverlay.Height - pomodoroTimer.Height) / 2);
             pomodoroTimer.BringToFront();
             pomodoroTimer.Size = new Size(63, 34);
-            pomodoroTimer.BackColor = Color.Transparent;
+            pomodoroTimer.BackColor = pnlLockOverlay.BackColor;
             pomodoroTimer.ForeColor = Color.White;
             label1.BackColor = Color.FromArgb(0, 255, 255, 255);
             this.Activate();
             this.BringToFront();
         }
 
-        private void HandleBreakEnded(object sender, EventArgs e)
+        private void HandleBreakEnded(object? sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
             {
@@ -99,7 +103,7 @@ namespace Flashcard_WinForm_App
             }
 
             pomodoroTimer.Parent = this;
-            pomodoroTimer.BackColor = this.BackColor;
+            pomodoroTimer.BackColor = Theme.BackgroundColor;
             pomodoroTimer.Location = new Point(550, 0);
             pomodoroTimer.ForeColor = Color.Black;
             pomodoroTimer.Size = new Size(177, 34);
@@ -107,6 +111,27 @@ namespace Flashcard_WinForm_App
 
             pnlLockOverlay.Visible = false;
             pomodoroTimer.StartTimer();
+        }
+
+        private void HandleBreakStopped(object? sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                f.Enabled = true;
+                if (f != this && f.WindowState == FormWindowState.Minimized)
+                {
+                    f.WindowState = FormWindowState.Normal;
+                }
+            }
+
+            pomodoroTimer.Parent = this;
+            pomodoroTimer.BackColor = this.BackColor;
+            pomodoroTimer.Location = new Point(550, 0);
+            pomodoroTimer.ForeColor = Color.Black;
+            pomodoroTimer.Size = new Size(177, 34);
+            pomodoroTimer.BringToFront();
+
+            pnlLockOverlay.Visible = false;
         }
 
         public void ApplyPomodoroSettings(User user)

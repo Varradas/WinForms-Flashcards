@@ -23,6 +23,8 @@ namespace Flashcard_WinForm_App.UserInterface
         public editCardPage(Deck deck, User user)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
+            this.BackColor = Theme.ButtonBgColor;
             currentDeck = deck;
             currentUser = user;
             availableCards = _manager.Cards.Where(c => c.DeckID == currentDeck.DeckID).ToList();
@@ -36,7 +38,7 @@ namespace Flashcard_WinForm_App.UserInterface
             var availableCards = _manager.Cards.Where(c => c.DeckID == currentDeck.DeckID).ToList();
 
             cardList.DataSource = availableCards;
-            cardList.DisplayMember = "Definition";
+            cardList.DisplayMember = "Answer";
             cardList.ValueMember = "CardID";
 
             deckLabel.Text = currentDeck.Label;
@@ -91,7 +93,7 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnDeleteCard_Click(object sender, EventArgs e)
         {
-            var selectedCard = (Flashcard)cardList.SelectedItem;
+            var selectedCard = (Flashcard?)cardList.SelectedItem;
 
             if (selectedCard != null)
             {
@@ -115,7 +117,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var deckPageControl = new global::Flashcard_WinForm_App.UserInterface.deckPage(currentDeck, currentUser);
 
-            Control parent = this.Parent;
+            Control? parent = this.Parent;
             while (parent != null)
             {
                 if (parent is INavigation nav)

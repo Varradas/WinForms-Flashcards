@@ -8,16 +8,11 @@ using System.Windows.Forms;
 
 namespace Flashcard_WinForm_App
 {
-    public partial class SplashScreen : BaseForm
+    public partial class BaseForm : Form
     {
-        public SplashScreen()
+        public BaseForm()
         {
             InitializeComponent();
-        }
-
-        private void SplashScreen_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Flashcard_WinForm_App.UserInterface
         public startQuizPage(QuizSession quiz, string quizType)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
             session = quiz;
             this.quizType = quizType;
 
@@ -83,7 +84,7 @@ namespace Flashcard_WinForm_App.UserInterface
 
             if (quizType == "Identification")
             {
-                isCorrect = string.Equals(inputAnswer.Text.Trim(), currentCard.Answer, StringComparison.OrdinalIgnoreCase);
+                isCorrect = string.Equals(inputAnswer.Text.Trim(), currentCard?.Answer, StringComparison.OrdinalIgnoreCase);
             }
             else if (quizType == "Multiple Choice")
             {
@@ -100,7 +101,7 @@ namespace Flashcard_WinForm_App.UserInterface
                     MessageBox.Show("Please select an answer first.");
                     return;
                 }
-                isCorrect = (selectedRb.Text == currentCard.Answer);
+                isCorrect = (selectedRb.Text == currentCard?.Answer);
             }
 
             if (isCorrect)
@@ -110,7 +111,7 @@ namespace Flashcard_WinForm_App.UserInterface
             }
             else
             {
-                MessageBox.Show($"Incorrect. The right answer was: {currentCard.Answer}");
+                MessageBox.Show($"Incorrect. The right answer was: {currentCard?.Answer}");
             }
 
             if (session.NextCard())

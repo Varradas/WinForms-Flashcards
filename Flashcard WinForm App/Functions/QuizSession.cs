@@ -11,8 +11,8 @@ namespace Flashcard_WinForm_App.Functions
         Manager _manager = GlobalData.Manager;
         private int currentIndex = 0;
         public int score { get; set; }
-        List<Flashcard> availableCards = new List<Flashcard>();
-        IEnumerable<Flashcard> filteredCards = new List<Flashcard>();
+        List<Flashcard>? availableCards = new List<Flashcard>();
+        IEnumerable<Flashcard>? filteredCards = new List<Flashcard>();
 
         public QuizSession(Deck currentDeck, bool excludeMastered, int? maxItems)
         {
@@ -32,11 +32,11 @@ namespace Flashcard_WinForm_App.Functions
             }
         }
 
-        public Flashcard GetCurrentCard() => availableCards.Count > 0 ? availableCards[currentIndex] : null;
+        public Flashcard? GetCurrentCard() => availableCards?.Count > 0 ? availableCards[currentIndex] : null;
 
         public bool NextCard()
         {
-            if (currentIndex < availableCards.Count - 1)
+            if (currentIndex < (availableCards?.Count ?? 0) - 1)
             {
                 currentIndex++;
                 return true;
@@ -46,7 +46,7 @@ namespace Flashcard_WinForm_App.Functions
 
         public void MarkCorrect() => score++;
 
-        public int TotalCards() => availableCards.Count;
+        public int TotalCards() => availableCards?.Count ?? 0;
 
         public List<string> GetMultipleChoiceOptions()
         {

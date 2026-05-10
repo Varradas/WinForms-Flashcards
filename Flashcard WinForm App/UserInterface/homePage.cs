@@ -20,6 +20,7 @@ namespace Flashcard_WinForm_App.UserInterface
         public homePage(User user)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
             currentUser = user;
         }
 
@@ -32,7 +33,7 @@ namespace Flashcard_WinForm_App.UserInterface
             if (this.ParentForm is INavigation nav)
             {
                 nav.ResizeHost(800, 600);
-                nav.LockSize(false);
+                nav.LockSize(true);
             }
             displayNickname.Text = $"Welcome, {currentUser.Nickname}!";
             refreshData();
@@ -147,7 +148,7 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void btnDeleteDeck_Click(object sender, EventArgs e)
         {
-            var selectedDeck = (Deck)deckList.SelectedItem;
+            var selectedDeck = (Deck?)deckList.SelectedItem;
 
             if (selectedDeck != null)
             {
@@ -190,7 +191,7 @@ namespace Flashcard_WinForm_App.UserInterface
                 sfd.Filter = "Flashcard Deck (*.json)|*.json";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    var selectedDeck = (Deck)deckList.SelectedItem;
+                    var selectedDeck = (Deck?)deckList.SelectedItem;
                     if (selectedDeck != null)
                     {
                         GlobalData.Manager.ExportDeck(selectedDeck.DeckID, sfd.FileName);
@@ -208,7 +209,7 @@ namespace Flashcard_WinForm_App.UserInterface
             }
             var settingsPageControl = new global::Flashcard_WinForm_App.UserInterface.settingsPage(currentUser);
 
-            Form parent = this.ParentForm;
+            Form? parent = this.ParentForm;
             if (parent is INavigation nav)
             {
                 nav.ShowPage(settingsPageControl);

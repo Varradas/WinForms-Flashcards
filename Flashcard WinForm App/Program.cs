@@ -12,7 +12,7 @@ namespace Flashcard_WinForm_App
         /// </summary>
         /// 
 
-        public static SplashScreen Splash = null;
+        public static SplashScreen? Splash = null;
 
         [STAThread]
         static void Main()

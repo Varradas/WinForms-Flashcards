@@ -102,7 +102,7 @@
             Controls.Add(inputDef);
             Controls.Add(label1);
             Name = "AddCardPopUp";
-            Text = "AddCardPopUp";
+            Text = "Add Card";
             ResumeLayout(false);
             PerformLayout();
         }

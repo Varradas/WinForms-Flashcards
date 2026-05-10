@@ -45,9 +45,9 @@
             // btnLogout
             // 
             btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLogout.Location = new Point(693, 549);
+            btnLogout.Location = new Point(685, 549);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(67, 23);
+            btnLogout.Size = new Size(75, 23);
             btnLogout.TabIndex = 1;
             btnLogout.Text = "Log Out";
             btnLogout.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // 
             btnAddDeck.Location = new Point(39, 480);
             btnAddDeck.Name = "btnAddDeck";
-            btnAddDeck.Size = new Size(85, 23);
+            btnAddDeck.Size = new Size(86, 23);
             btnAddDeck.TabIndex = 6;
             btnAddDeck.Text = "New Deck";
             btnAddDeck.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             // btnImportDeck
             // 
-            btnImportDeck.Location = new Point(130, 481);
+            btnImportDeck.Location = new Point(131, 481);
             btnImportDeck.Name = "btnImportDeck";
             btnImportDeck.Size = new Size(85, 23);
             btnImportDeck.TabIndex = 8;

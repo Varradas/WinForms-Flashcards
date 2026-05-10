@@ -18,6 +18,8 @@ namespace Flashcard_WinForm_App.UserInterface
         public settingsPage(User user)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
+            btnDeleteUser.BackColor = Color.Red;
             currentUser = user;
             if (currentUser.IsPomodoroEnabled)
             {
@@ -62,7 +64,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var homePageControl = new global::Flashcard_WinForm_App.UserInterface.homePage(currentUser);
 
-            Form parent = this.ParentForm;
+            Form? parent = this.ParentForm;
             if (parent is INavigation nav)
             {
                 nav.ShowPage(homePageControl);
@@ -78,7 +80,7 @@ namespace Flashcard_WinForm_App.UserInterface
                 _manager.DeleteUser(currentUser.UserID);
                 var loginPageControl = new global::Flashcard_WinForm_App.UserInterface.loginPage();
 
-                Form parent = this.ParentForm;
+                Form? parent = this.ParentForm;
                 if (parent is INavigation nav)
                 {
                     nav.ShowPage(loginPageControl);

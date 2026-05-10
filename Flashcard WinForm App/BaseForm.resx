@@ -117,33 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bgColor" xml:space="preserve">
-    <value>#0F042D</value>
-    <comment>Background Color</comment>
-  </data>
-  <data name="cardBack" xml:space="preserve">
-    <value>#578EE4</value>
-    <comment>Answer Color</comment>
-  </data>
-  <data name="cardFront" xml:space="preserve">
-    <value>#C23170</value>
-    <comment>Definition Color</comment>
-  </data>
-  <data name="buttonBg" xml:space="preserve">
-    <value>#3A3939</value>
-    <comment>Background for Buttons</comment>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Data\images\logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="splashImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Data\images\splash2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="textboxBg" xml:space="preserve">
-    <value>#B4B4B4</value>
-  </data>
-  <data name="AppLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Data\images\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

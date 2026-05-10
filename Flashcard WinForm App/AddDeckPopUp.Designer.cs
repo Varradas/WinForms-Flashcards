@@ -102,7 +102,7 @@
             Controls.Add(inputLabel);
             Controls.Add(label1);
             Name = "AddDeckPopUp";
-            Text = "AddDeckPopUp";
+            Text = "Add Deck";
             ResumeLayout(false);
             PerformLayout();
         }

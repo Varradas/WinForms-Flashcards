@@ -16,6 +16,7 @@ namespace Flashcard_WinForm_App.UserInterface
         public registerPage()
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
         }
 
         private void registerPage_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var loginPageControl = new global::Flashcard_WinForm_App.UserInterface.loginPage();
 
-            Form parent = this.ParentForm;
+            Form? parent = this.ParentForm;
             if (parent is INavigation nav)
             {
                 nav.ShowPage(loginPageControl);

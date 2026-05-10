@@ -59,5 +59,80 @@ namespace Flashcard_WinForm_App.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AppLogo {
+            get {
+                object obj = ResourceManager.GetObject("AppLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #0F042D.
+        /// </summary>
+        internal static string bgColor {
+            get {
+                return ResourceManager.GetString("bgColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #3A3939.
+        /// </summary>
+        internal static string buttonBg {
+            get {
+                return ResourceManager.GetString("buttonBg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #578EE4.
+        /// </summary>
+        internal static string cardBack {
+            get {
+                return ResourceManager.GetString("cardBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #C23170.
+        /// </summary>
+        internal static string cardFront {
+            get {
+                return ResourceManager.GetString("cardFront", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splashImage {
+            get {
+                object obj = ResourceManager.GetObject("splashImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #B4B4B4.
+        /// </summary>
+        internal static string textboxBg {
+            get {
+                return ResourceManager.GetString("textboxBg", resourceCulture);
+            }
+        }
     }
 }

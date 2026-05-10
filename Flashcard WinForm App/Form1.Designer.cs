@@ -68,8 +68,9 @@
             // 
             // pomodoroTimer
             // 
-            pomodoroTimer.BackColor = Color.Transparent;
+            pomodoroTimer.BackColor = Color.RosyBrown;
             pomodoroTimer.BreakDurationMinutes = 5;
+            pomodoroTimer.ForeColor = Color.White;
             pomodoroTimer.Location = new Point(550, 0);
             pomodoroTimer.Name = "pomodoroTimer";
             pomodoroTimer.Size = new Size(177, 34);
@@ -88,7 +89,7 @@
             DoubleBuffered = true;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "FlashWise";
             Load += Form1_Load;
             pnlLockOverlay.ResumeLayout(false);
             pnlLockOverlay.PerformLayout();

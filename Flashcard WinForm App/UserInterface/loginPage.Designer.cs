@@ -34,17 +34,19 @@
             btnLogin = new Button();
             btnRegister = new Button();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(141, 82);
+            label1.Location = new Point(211, 106);
             label1.Name = "label1";
-            label1.Size = new Size(202, 28);
+            label1.Size = new Size(61, 28);
             label1.TabIndex = 0;
-            label1.Text = "This is the Login Page.";
+            label1.Text = "Login";
             // 
             // usernameInput
             // 
@@ -66,7 +68,7 @@
             // 
             btnLogin.Location = new Point(205, 248);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
+            btnLogin.Size = new Size(75, 25);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
@@ -76,7 +78,7 @@
             // 
             btnRegister.Location = new Point(205, 316);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(75, 23);
+            btnRegister.Size = new Size(75, 25);
             btnRegister.TabIndex = 5;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -91,11 +93,22 @@
             label2.TabIndex = 6;
             label2.Text = "New User? Register Below ↓";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(162, 42);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(151, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
             // loginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);
@@ -106,6 +119,7 @@
             Name = "loginPage";
             Size = new Size(500, 500);
             Load += loginPage_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,5 +132,6 @@
         private Button btnLogin;
         private Button btnRegister;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

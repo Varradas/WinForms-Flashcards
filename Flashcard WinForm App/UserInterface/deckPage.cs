@@ -21,6 +21,8 @@ namespace Flashcard_WinForm_App.UserInterface
         public deckPage(Deck selectedDeck, User user)
         {
             InitializeComponent();
+            Theme.ApplyTheme(this);
+            this.BackColor = Theme.ButtonBgColor;
             currentDeck = selectedDeck;
             currentUser = user;
             refreshData();
@@ -50,7 +52,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var learnCardsPageControl = new global::Flashcard_WinForm_App.UserInterface.learnCardsPage(currentDeck, currentUser);
 
-            Control parent = this.Parent;
+            Control? parent = this.Parent;
             while (parent != null)
             {
                 if (parent is INavigation nav)
@@ -72,7 +74,7 @@ namespace Flashcard_WinForm_App.UserInterface
         {
             var editCardPageControl = new global::Flashcard_WinForm_App.UserInterface.editCardPage(currentDeck, currentUser);
 
-            Control parent = this.Parent;
+            Control? parent = this.Parent;
             while (parent != null)
             {
                 if (parent is INavigation nav)
@@ -80,7 +82,7 @@ namespace Flashcard_WinForm_App.UserInterface
                     nav.ShowPage(editCardPageControl);
                     break;
                 }
-                parent = parent.Parent;
+                parent = parent?.Parent;
             }
         }
 
@@ -101,7 +103,7 @@ namespace Flashcard_WinForm_App.UserInterface
                     {
                         MessageBox.Show("Please fill in all the fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    Control parent = this.Parent;
+                    Control? parent = this.Parent;
                     while (parent != null)
                     {
                         if (parent is homePage nav)

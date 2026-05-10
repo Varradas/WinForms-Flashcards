@@ -113,7 +113,7 @@
             Controls.Add(inputDef);
             Controls.Add(label1);
             Name = "EditCardPopUp";
-            Text = "EditCardPopUp";
+            Text = "Edit Card";
             ResumeLayout(false);
             PerformLayout();
         }
