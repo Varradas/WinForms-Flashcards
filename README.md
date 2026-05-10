@@ -35,7 +35,6 @@ The main purpose of the system is to:
 - Quiz
 - MultipleChoiceQuiz
 - IdentificationQuiz
-- EnumerationQuiz
 - ProgressTracker
 - PomodoroTimer
 - QuizResult
@@ -50,7 +49,6 @@ Data such as usernames, passwords, flashcards, quiz results, and progress are st
 Different quiz types inherit from the base `Quiz` class:
 - MultipleChoiceQuiz
 - IdentificationQuiz
-- EnumerationQuiz
 
 ### Polymorphism
 The method `CheckAnswer()` behaves differently depending on the quiz type.
@@ -65,7 +63,6 @@ Complex processes such as scoring systems, timer logic, and flashcard navigation
 ## 1. User Authentication System
 - User registration
 - User login/logout
-- Personalized learning environment
 
 ## 2. Flashcard Management (CRUD)
 - Create flashcards
@@ -76,44 +73,38 @@ Complex processes such as scoring systems, timer logic, and flashcard navigation
 
 ## 3. Flashcard Study System
 - Flashcard status:
-  - Seen
-  - Mastered
-  - Needs Review
+  - Mastered (Checkbox)
 
-## 4. Quiz Management System
-- Create quizzes
-- Edit quizzes
-- Delete quizzes
+## 4. Quiz Setup
 - Take quizzes
+- Can choice number of Items
+- Can choice type of quiz
 
 ## 5. Quiz Types
 - Multiple Choice
 - Identification
-- Enumeration
 
-## 6. Score and Result System
+## 6. Score System
 - Displays:
   - Score
-  - Percentage
-  - Performance Evaluation
-- Review correct and incorrect answers
-- Retry incorrect items
+  - Correct answer
+  - Incorrect answer
 
 ## 7. Progress Tracking System
 Tracks learning progress through:
-- Learning
-- Mastered
+- Mastery Percentage
 
 ## 8. Pomodoro Timer
 - 25-minute study sessions
 - 5-minute break sessions
 - Custom timer support
-- Floating timer panel
 
-## 9. Personalization Features
-- Nickname customization
-- Light/Dark theme switching
-- Quiz and flashcard history
+## 9. Import and Export Premade Decks
+- Users can import premade flashcard decks into the system
+- Users can export their own flashcard decks for backup or sharing
+- Supports organized study material sharing between users
+- Helps reduce the time needed to manually create flashcards
+- Imported decks are automatically categorized by subject or topic
 
 ---
 
@@ -127,30 +118,30 @@ After login, users are redirected to the main dashboard where they can access:
 - Flashcards
 - Quiz System
 - Pomodoro Timer
-- Personal Menu
 
 ## Step 3: Flashcard Learning
 Users create flashcards and study them through flip-card interaction and keyboard navigation.
 
-The system tracks flashcard progress by categorizing cards as:
-- Seen
-- Mastered
-- Needs Review
+The system tracks flashcard progress by checking the Mastered checkbox.
 
-## Step 4: Quiz System
-Users create or take quizzes using different quiz types.
-
-After completing the quiz, the system:
-- Calculates scores
-- Displays percentage results
-- Shows performance feedback
-- Allows answer review
+## Step 4: Quiz Setup
+Users can start quizzes base on their flashcards. Users can also select the quiz type and number of items.
 
 ## Step 5: Progress Tracking
-The system monitors user learning performance and stores quiz history and flashcard progress.
+The system monitors user learning performance and flashcard progress.
 
 ## Step 6: Pomodoro Timer
-Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes.
+Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes. 
+
+## Step 7: Import and Export Decks
+Users can import premade flashcard decks to quickly access study materials without manually creating flashcards.
+
+The system also allows users to export their own flashcard decks for:
+- Backup purposes
+- Sharing with classmates
+- Reusing study materials in the future
+
+Imported decks are automatically added to the flashcard management system and categorized properly for easier studying.
 
 ---
 
@@ -173,8 +164,101 @@ Users can start study sessions using the Pomodoro Timer while reviewing flashcar
 - Visual Studio 2022 or later
 - .NET Framework
 
-## Steps to Run
+# How to Run the Application
 
-1. Clone the repository:
+1. Download or clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/studysync.git
+```
+
+2. Open the project folder in Visual Studio.
+
+3. Open the solution file:
+
+```text
+StudySync.sln
+```
+
+4. Build the project by clicking:
+
+```text
+Build → Build Solution
+```
+
+5. Run the application by pressing:
+
+```text
+F5
+```
+
+6. Register an account and start using the system.
+
+# Project Structure
+```
+📂FlashWise
+└── 📂Flashcard WinForm App/
+│    ├── 📂Data/
+│    │   ├── 🛢️filedatabase.db
+│    │   ├── 📄DBInitializer.cs
+│    │   ├── 📄DBPath.cs
+│    │   ├── 📄GlobalData.cs
+│    │   └── 📄Manager.cs
+│    ├── 📂Functions/
+│    │   ├── 📄 Authorization.cs
+│    │   ├── 📄CardRepo.cs
+│    │   ├── 📄DeckRepo.cs
+│    │   └── 📄INavigation.cs
+│    ├── 📂Models/
+│    │   ├── 📄Deck.cs
+│    │   ├── 📄Flashcard.cs
+│    │   ├── 📄Settings.cs
+│    │   └── User.cs
+│    ├── 📂Properties/
+│    │   ├── 📄Resources.resx
+│    │   └── 📄Resources.Designer.cs
+│    ├── 📂UserInterface/
+│    │   ├── 📄PomodoroTimer
+│    │   ├── 📄deckPage
+│    │   ├── 📄editCardPage
+│    │   ├── 📄homePage
+│    │   ├── 📄learnCardsPage
+│    │   ├── 📄loginPage
+│    │   ├── 📄registerPage
+│    │   ├── 📄settingsPage
+│    │   └── 📄startQuizPage
+│    ├── 📄AddCardPopUp
+│    ├── 📄EditCardPopUp
+│    ├── 📄Flashcard WinForm App.csproj
+│    ├── 📄Form1
+│    ├── 📄Program.cs
+│    ├── 📄QuizPopUp
+│    └── 📄SplashScreen
+├── .gitattributes
+├── .gitignore
+├── BSU project.slnx
+└── README.md
+```
+
+# Developers
+
+## Team Name: ENIGM4
+
+| Name | Role | Responsibility |
+|------|------|------|
+| Berana, Jon Paul S. | Front-End Developer | User Interface Design and Navigation |
+| De Castro, Vinz Gabriel S. | Back-End Developer | System Logic and Database Integration |
+| De Castro, Vinz Gabriel S. | Documentation Developer | Project Documentation and Repository Management |
+| Mendoza, John Laurence M. | Project Manager | Project Coordination, READme file Coordinator, and Testing |
+
+---
+
+# Acknowledgment
+
+The developers would like to express their gratitude to the College of Informatics and Computing Sciences and to our instructor, Ms. Fatima Marie P. Agdon, for the guidance, support, and knowledge provided throughout the development of this project.
+
+This project was developed as a requirement for:
+
+**CS 222 – Advanced Object-Oriented Programming**  
+2nd Semester, AY 2025–2026
+
