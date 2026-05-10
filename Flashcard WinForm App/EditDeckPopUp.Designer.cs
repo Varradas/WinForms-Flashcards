@@ -69,7 +69,7 @@
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(75, 23);
             addBtn.TabIndex = 8;
-            addBtn.Text = "Add";
+            addBtn.Text = "Confirm";
             addBtn.UseVisualStyleBackColor = true;
             // 
             // inputLabel

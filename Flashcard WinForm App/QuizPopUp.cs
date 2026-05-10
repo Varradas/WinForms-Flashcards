@@ -29,6 +29,11 @@ namespace Flashcard_WinForm_App
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtItems.Text) || choiceQuizType.SelectedItem == null)
+            {
+                MessageBox.Show("Please enter the number of items and select a quiz type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var quizSession = new QuizSession(
                 currentDeck, 
                 masteredFilter.Checked, 

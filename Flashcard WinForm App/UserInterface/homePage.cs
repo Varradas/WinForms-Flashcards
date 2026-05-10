@@ -25,11 +25,16 @@ namespace Flashcard_WinForm_App.UserInterface
 
         private void homePage_Load(object sender, EventArgs e)
         {
+            if (this.ParentForm is Form1 mainForm)
+            {
+                mainForm.ApplyPomodoroSettings(currentUser);
+            }
             if (this.ParentForm is INavigation nav)
             {
                 nav.ResizeHost(800, 600);
+                nav.LockSize(false);
             }
-
+            displayNickname.Text = $"Welcome, {currentUser.Nickname}!";
             refreshData();
         }
 
@@ -63,7 +68,7 @@ namespace Flashcard_WinForm_App.UserInterface
             {
                 placeholderTextDeck.Visible = true;
             }
-            
+
             if (deckList.SelectedItem == null)
             {
                 btnDeleteDeck.Enabled = false;
@@ -192,6 +197,21 @@ namespace Flashcard_WinForm_App.UserInterface
                         MessageBox.Show("Deck exported successfully!");
                     }
                 }
+            }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            if (this.ParentForm is Form1 mainForm)
+            {
+                mainForm.pomodoroTimer.Visible = false;
+            }
+            var settingsPageControl = new global::Flashcard_WinForm_App.UserInterface.settingsPage(currentUser);
+
+            Form parent = this.ParentForm;
+            if (parent is INavigation nav)
+            {
+                nav.ShowPage(settingsPageControl);
             }
         }
     }

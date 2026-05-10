@@ -10,6 +10,8 @@ namespace Flashcard_WinForm_App.Models
         public string Nickname { get; set; }
         public string Username { get; set; }
         public string PasswordHash { get; set; }
-        public byte[]? Config { get; set; }
+        public bool IsPomodoroEnabled { get; set; } 
+        public int TimerWorkLength { get; set; }
+        public int TimerBreakLength { get; set; }
     }
 }

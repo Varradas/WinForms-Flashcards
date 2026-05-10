@@ -23,13 +23,16 @@ namespace Flashcard_WinForm_App.Data
             using (var conn = new SqliteConnection(_connectionString))
             {
                 conn.Open();
-                var userCmd = new SqliteCommand("SELECT UserID, Username, Nickname, PasswordHash, Config FROM User", conn);
+                var userCmd = new SqliteCommand("SELECT UserID, Username, Nickname, PasswordHash, IsPomodoroEnabled, TimerWorkLength, TimerBreakLength FROM User", conn);
                 using (var r = userCmd.ExecuteReader()) while (r.Read()) Users.Add(new User { 
                         UserID = r.GetString(0), 
                         Username = r.GetString(1), 
                         Nickname = r.GetString(2), 
-                        PasswordHash = r.GetString(3), 
-                        Config = r.IsDBNull(4) ? null : (byte[])r["Config"] 
+                        PasswordHash = r.GetString(3),
+                        IsPomodoroEnabled = r.GetBoolean(4), 
+                        TimerWorkLength = r.GetInt16(5), 
+                        TimerBreakLength = r.GetInt16(6)
+                    //Config = r.IsDBNull(4) ? null : (byte[])r["Config"]
                 });
 
                 var deckCmd = new SqliteCommand("SELECT DeckID, UserID, Label, Description FROM Deck", conn);
@@ -72,8 +75,19 @@ namespace Flashcard_WinForm_App.Data
             Users.RemoveAll(u => u.UserID == userId);
 
             ExecuteNonQuery("DELETE FROM User WHERE UserID = @id", new SqliteParameter("@id", userId));
+        }
 
-
+        public void UpdateUserConfig(string userId, bool isPomodoroEnabled, int workLength, int breakLength)
+        {
+            var u = Users.FirstOrDefault(x => x.UserID == userId);
+            if (u == null) return;
+            u.IsPomodoroEnabled = isPomodoroEnabled; u.TimerWorkLength = workLength; u.TimerBreakLength = breakLength;
+            ExecuteNonQuery("UPDATE User SET IsPomodoroEnabled = @pe, TimerWorkLength = @wl, TimerBreakLength = @bl WHERE UserID = @id",
+                new SqliteParameter("@pe", isPomodoroEnabled), 
+                new SqliteParameter("@wl", workLength), 
+                new SqliteParameter("@bl", breakLength), 
+                new SqliteParameter("@id", userId)
+                );
         }
 
         // --- DECK CRUD ---

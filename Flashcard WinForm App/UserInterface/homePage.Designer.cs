@@ -37,6 +37,8 @@
             pnlContentSide = new Panel();
             placeholderTextDisplay = new Label();
             btnExportDeck = new Button();
+            btnSettings = new Button();
+            displayNickname = new Label();
             pnlContentSide.SuspendLayout();
             SuspendLayout();
             // 
@@ -130,10 +132,33 @@
             btnExportDeck.UseVisualStyleBackColor = true;
             btnExportDeck.Click += btnExportDeck_Click;
             // 
+            // btnSettings
+            // 
+            btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSettings.Location = new Point(685, 520);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(75, 23);
+            btnSettings.TabIndex = 11;
+            btnSettings.Text = "Settings";
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
+            // 
+            // displayNickname
+            // 
+            displayNickname.AutoSize = true;
+            displayNickname.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            displayNickname.Location = new Point(39, 3);
+            displayNickname.Name = "displayNickname";
+            displayNickname.Size = new Size(166, 30);
+            displayNickname.TabIndex = 12;
+            displayNickname.Text = "Hello, nickname.";
+            // 
             // homePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(displayNickname);
+            Controls.Add(btnSettings);
             Controls.Add(btnExportDeck);
             Controls.Add(pnlContentSide);
             Controls.Add(btnImportDeck);
@@ -162,5 +187,7 @@
         private Panel pnlContentSide;
         private Label placeholderTextDisplay;
         private Button btnExportDeck;
+        private Button btnSettings;
+        private Label displayNickname;
     }
 }

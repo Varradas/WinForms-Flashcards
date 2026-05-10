@@ -15,6 +15,7 @@ namespace Flashcard_WinForm_App.UserInterface
         QuizSession session;
         string quizType;
         List<RadioButton> radioButtons;
+        List<Label> radioLabels;
         public startQuizPage(QuizSession quiz, string quizType)
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace Flashcard_WinForm_App.UserInterface
             this.quizType = quizType;
 
             radioButtons = new List<RadioButton> { rbOp1, rbOp2, rbOp3, rbOp4 };
+            radioLabels = new List<Label> { radioLabel1, radioLabel2, radioLabel3, radioLabel4 };
         }
 
         private void startQuizPage_Load(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace Flashcard_WinForm_App.UserInterface
                 inputAnswer.Visible = false;
                 pnlMultipleChoice.Visible = true;
                 btnSubmit.Left = 334;
-                btnSubmit.Top = 372;
+                btnSubmit.Top = 400;
 
                 var options = session.GetMultipleChoiceOptions();
                 for (int i = 0; i < radioButtons.Count; i++)
@@ -62,7 +64,8 @@ namespace Flashcard_WinForm_App.UserInterface
                     if (i < options.Count)
                     {
                         radioButtons[i].Visible = true;
-                        radioButtons[i].Text = options[i];
+                        radioButtons[i].Text = null;
+                        radioLabels[i].Text = options[i];
                         radioButtons[i].Checked = false; 
                     }
                     else
@@ -84,7 +87,14 @@ namespace Flashcard_WinForm_App.UserInterface
             }
             else if (quizType == "Multiple Choice")
             {
-                var selectedRb = radioButtons.FirstOrDefault(rb => rb.Checked);
+                for (int i = 0; i < radioButtons.Count; i++)
+                {
+                    if (radioButtons[i].Visible)
+                    {
+                        radioButtons[i].Text = radioLabels[i].Text;
+                    }
+                }
+                    var selectedRb = radioButtons.FirstOrDefault(rb => rb.Checked);
                 if (selectedRb == null)
                 {
                     MessageBox.Show("Please select an answer first.");
