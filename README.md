@@ -33,14 +33,12 @@ The main purpose of the system is to:
 
 ### Main Classes
 - User
+- Deck
 - Flashcard
-- Quiz
-- MultipleChoiceQuiz
-- IdentificationQuiz
-- ProgressTracker
+- QuizSession
+- Authorization
+- Manager
 - PomodoroTimer
-- QuizResult
-- SubjectCategory
 
 ## OOP Principles Applied
 
