@@ -111,27 +111,17 @@ After login, users are redirected to the main dashboard where they can access:
 - Flashcards
 - Quiz System
 - Pomodoro Timer
-- Personal Menu
 
 ## Step 3: Flashcard Learning
 Users create flashcards and study them through flip-card interaction and keyboard navigation.
 
-The system tracks flashcard progress by categorizing cards as:
-- Seen
-- Mastered
-- Needs Review
+The system tracks flashcard progress by checking the Mastered checkbox
 
 ## Step 4: Quiz System
 Users create or take quizzes using different quiz types.
 
-After completing the quiz, the system:
-- Calculates scores
-- Displays percentage results
-- Shows performance feedback
-- Allows answer review
-
 ## Step 5: Progress Tracking
-The system monitors user learning performance and stores quiz history and flashcard progress.
+The system monitors user learning performance and flashcard progress.
 
 ## Step 6: Pomodoro Timer
 Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes.
