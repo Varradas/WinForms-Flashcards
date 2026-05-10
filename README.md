@@ -194,6 +194,51 @@ F5
 
 6. Register an account and start using the system.
 
+# Project Structure
+```
+📂FlashWise
+└── 📂Flashcard WinForm App/
+│    ├── 📂Data/
+│    │   ├── 🛢️filedatabase.db
+│    │   ├── 📄DBInitializer.cs
+│    │   ├── 📄DBPath.cs
+│    │   ├── 📄GlobalData.cs
+│    │   └── 📄Manager.cs
+│    ├── 📂Functions/
+│    │   ├── 📄 Authorization.cs
+│    │   ├── 📄CardRepo.cs
+│    │   ├── 📄DeckRepo.cs
+│    │   └── 📄INavigation.cs
+│    ├── 📂Models/
+│    │   ├── 📄Deck.cs
+│    │   ├── 📄Flashcard.cs
+│    │   ├── 📄Settings.cs
+│    │   └── User.cs
+│    ├── 📂Properties/
+│    │   ├── 📄Resources.resx
+│    │   └── 📄Resources.Designer.cs
+│    ├── 📂UserInterface/
+│    │   ├── 📄PomodoroTimer
+│    │   ├── 📄deckPage
+│    │   ├── 📄editCardPage
+│    │   ├── 📄homePage
+│    │   ├── 📄learnCardsPage
+│    │   ├── 📄loginPage
+│    │   ├── 📄registerPage
+│    │   ├── 📄settingsPage
+│    │   └── 📄startQuizPage
+│    ├── 📄AddCardPopUp
+│    ├── 📄EditCardPopUp
+│    ├── 📄Flashcard WinForm App.csproj
+│    ├── 📄Form1
+│    ├── 📄Program.cs
+│    ├── 📄QuizPopUp
+│    └── 📄SplashScreen
+├── .gitattributes
+├── .gitignore
+├── BSU project.slnx
+└── README.md
+```
 
 # Developers
 
