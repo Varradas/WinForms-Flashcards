@@ -194,3 +194,26 @@ F5
 
 6. Register an account and start using the system.
 
+
+# Developers
+
+## Team Name: ENIGM4
+
+| Name | Role | Responsibility |
+|------|------|------|
+| Berana, Jon Paul S. | Front-End Developer | User Interface Design and Navigation |
+| De Castro, Vinz Gabriel S. | Back-End Developer | System Logic and Database Integration |
+| De Castro, Vinz Gabriel S. | Documentation Developer | Project Documentation and Repository Management |
+| Mendoza, John Laurence M. | Project Manager | Project Coordination, READme file Coordinator, and Testing |
+
+---
+
+# Acknowledgment
+
+The developers would like to express their gratitude to the Computer Science Department and to our instructor, Ms. Fatima Marie P. Agdon, for the guidance, support, and knowledge provided throughout the development of this project.
+
+This project was developed as a requirement for:
+
+**CS 222 – Advanced Object-Oriented Programming**  
+2nd Semester, AY 2025–2026
+
