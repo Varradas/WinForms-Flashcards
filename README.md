@@ -35,7 +35,6 @@ The main purpose of the system is to:
 - Quiz
 - MultipleChoiceQuiz
 - IdentificationQuiz
-- EnumerationQuiz
 - ProgressTracker
 - PomodoroTimer
 - QuizResult
@@ -50,7 +49,6 @@ Data such as usernames, passwords, flashcards, quiz results, and progress are st
 Different quiz types inherit from the base `Quiz` class:
 - MultipleChoiceQuiz
 - IdentificationQuiz
-- EnumerationQuiz
 
 ### Polymorphism
 The method `CheckAnswer()` behaves differently depending on the quiz type.
@@ -65,7 +63,6 @@ Complex processes such as scoring systems, timer logic, and flashcard navigation
 ## 1. User Authentication System
 - User registration
 - User login/logout
-- Personalized learning environment
 
 ## 2. Flashcard Management (CRUD)
 - Create flashcards
@@ -76,44 +73,31 @@ Complex processes such as scoring systems, timer logic, and flashcard navigation
 
 ## 3. Flashcard Study System
 - Flashcard status:
-  - Seen
-  - Mastered
-  - Needs Review
+  - Mastered (Checkbox)
 
-## 4. Quiz Management System
-- Create quizzes
-- Edit quizzes
-- Delete quizzes
+## 4. Quiz Setup
 - Take quizzes
+- Can choice number of Items
+- Can choice type of quiz
 
 ## 5. Quiz Types
 - Multiple Choice
 - Identification
-- Enumeration
 
-## 6. Score and Result System
+## 6. Score System
 - Displays:
   - Score
-  - Percentage
-  - Performance Evaluation
-- Review correct and incorrect answers
-- Retry incorrect items
+  - Correct answer
+  - Incorrect answer
 
 ## 7. Progress Tracking System
 Tracks learning progress through:
-- Learning
-- Mastered
+- Mastery Percentage
 
 ## 8. Pomodoro Timer
 - 25-minute study sessions
 - 5-minute break sessions
 - Custom timer support
-- Floating timer panel
-
-## 9. Personalization Features
-- Nickname customization
-- Light/Dark theme switching
-- Quiz and flashcard history
 
 ---
 
