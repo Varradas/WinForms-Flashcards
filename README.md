@@ -210,7 +210,7 @@ F5
 
 # Acknowledgment
 
-The developers would like to express their gratitude to the Computer Science Department and to our instructor, Ms. Fatima Marie P. Agdon, for the guidance, support, and knowledge provided throughout the development of this project.
+The developers would like to express their gratitude to the College of Informatics and Computing Sciences and to our instructor, Ms. Fatima Marie P. Agdon, for the guidance, support, and knowledge provided throughout the development of this project.
 
 This project was developed as a requirement for:
 
