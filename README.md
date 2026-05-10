@@ -193,7 +193,7 @@ F5
 |------|------|------|
 | Berana, Jon Paul S. | Front-End Developer | User Interface Design and Navigation |
 | De Castro, Vinz Gabriel S. | Back-End Developer | System Logic and Database Integration |
-| De Castro, John Christian N. | Documentation Developer | Project Documentation and Repository Management |
+| De Castro, John Christian N.| Documentation Developer | Project Documentation and Repository Management |
 | Mendoza, John Laurence M. | Project Manager | Project Coordination, READme file Coordinator, and Testing |
 
 ---
