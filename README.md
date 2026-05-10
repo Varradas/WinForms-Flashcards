@@ -117,24 +117,9 @@ Imported decks are automatically added to the flashcard management system and ca
 https://github.com/Varradas/WinForms-Flashcards.git
 ```
 
-2. Open the project folder in Visual Studio.
+2.) Extract to desired folder
 
-3. Open the solution file:
-
-```text
-StudySync.sln
-```
-
-4. Build the project by clicking:
-
-```text
-Build → Build Solution
-```
-
-5. Run the application by pressing:
-
-```text
-F5
+3.) Run "Flashcard WinForm App.exe"
 ```
 
 6. Register an account and start using the system.
