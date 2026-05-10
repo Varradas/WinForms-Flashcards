@@ -27,7 +27,7 @@ The main purpose of the system is to:
 
 # UML Diagram
 
-<img src="images/umlv2.png" alt="Alt text" width="500">
+<img src="images/umlv2.png" alt="Alt text" width="1000">
 
 ## Planned Classes
 
