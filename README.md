@@ -12,7 +12,7 @@ This project is developed as a requirement for CS 222 – Advanced Object-Orient
 
 ---
 
-# Purpose of the System
+## Purpose of the System
 
 The main purpose of the system is to:
 
@@ -25,7 +25,7 @@ The main purpose of the system is to:
 
 ---
 
-# UML Diagram
+## UML Diagram
 
 <img src="images/umlv2.png" alt="Alt text" width="1000">
 
@@ -42,12 +42,14 @@ The main purpose of the system is to:
 1.  **Secure Authentication:** User registration and login featuring encrypted password storage.
 2.  **Deck & Card CRUD:** Full management of study materials including descriptions and labels.
 3.  **Active Recall System:** Interactive flashcard interface with "Mastery" toggles.
-4.  **Dynamic Quiz Engine:** * **Multiple Choice:** Automatically pulls wrong answers from other cards in the deck.
+4.  **Dynamic Quiz Engine:**
+    * **Multiple Choice:** Automatically pulls wrong answers from other cards in the deck.
     * **Identification:** Requires text matches for rigorous testing.
     * **Smart Filtering:** Option to exclude "Mastered" cards to focus on weak areas.
-5.  **Global Pomodoro Timer:** * Customizable Work/Break intervals.
+6.  **Global Pomodoro Timer:**
+    * Customizable Work/Break intervals.
     * UI Lock-out during mandatory breaks to prevent burnout.
-6.  **Data Portability:** Export and import decks as `.json` files for backup or sharing with other users.
+8.  **Data Portability:** Export and import decks as `.json` files for backup or sharing with other users.
 
 ---
 
@@ -65,32 +67,33 @@ The main purpose of the system is to:
 
 ---
 
-# Explanation of How the Program Works
+## Explanation of How the Program Works
 
-## Step 1: User Authentication
+### Step 1: User Authentication
 Users create an account or log in using their credentials.
 
-## Step 2: Dashboard Access
+### Step 2: Dashboard Access
 After login, users are redirected to the main dashboard where they can access:
+- Current User's Decks
 - Flashcards
 - Quiz System
 - Pomodoro Timer
 
-## Step 3: Flashcard Learning
+### Step 3: Flashcard Learning
 Users create flashcards and study them through flip-card interaction and keyboard navigation.
 
 The system tracks flashcard progress by checking the Mastered checkbox.
 
-## Step 4: Quiz Setup
+### Step 4: Quiz Setup
 Users can start quizzes base on their flashcards. Users can also select the quiz type and number of items.
 
-## Step 5: Progress Tracking
-The system monitors user learning performance and flashcard progress.
+### Step 5: Progress Tracking
+The system monitors the user's flashcard mastery for each deck.
 
-## Step 6: Pomodoro Timer
+### Step 6: Pomodoro Timer
 Users can start study sessions using the Pomodoro Timer while reviewing flashcards or taking quizzes. 
 
-## Step 7: Import and Export Decks
+### Step 7: Import and Export Decks
 Users can import premade flashcard decks to quickly access study materials without manually creating flashcards.
 
 The system also allows users to export their own flashcard decks for:
@@ -102,24 +105,24 @@ Imported decks are automatically added to the flashcard management system and ca
 
 ---
 
-# Instructions on How to Run the Application
+## How to Download and Run the Application
 
-## Requirements
+### Requirements
 - Windows Operating System
 - Visual Studio 2022 or later
 - .NET Framework
 
-# How to Run the Application
+### Instructions
 
-1. Download or clone the repository:
+1. Go to Releases page and choose a version
 
-```bash
-https://github.com/Varradas/WinForms-Flashcards.git
-```
+2. Download the ZIP file from the Assets section (ZIPs named "FlashWise(version).zip")
 
-2.) Extract to desired folder
+3. Extract ZIP to desired folder
 
-3.) Run "Flashcard WinForm App.exe"
+4. Run "Flashcard WinForm App.exe"
+
+---
 
 
 # Project Structure
@@ -170,9 +173,9 @@ https://github.com/Varradas/WinForms-Flashcards.git
 └── README.md
 ```
 
-# Developers
+## Developers
 
-## Team Name: ENIGM4
+### Team Name: ENIGM4
 
 | Name | Role | Responsibility |
 |------|------|------|
@@ -183,7 +186,7 @@ https://github.com/Varradas/WinForms-Flashcards.git
 
 ---
 
-# Acknowledgment
+## Acknowledgment
 
 The developers would like to express their gratitude to the College of Informatics and Computing Sciences and to our instructor, Ms. Fatima Marie P. Agdon, for the guidance, support, and knowledge provided throughout the development of this project.
 
